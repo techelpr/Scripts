@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# This script resets the iptables to default.
+#
+# IPv4
+# Set default policies to allow all traffic.
+sudo iptables --policy INPUT   ACCEPT;
+sudo iptables --policy OUTPUT  ACCEPT;
+sudo iptables --policy FORWARD ACCEPT;
+#
+# Initialize the iptables.
+sudo iptables -Z; # zero counters
+sudo iptables -F; # flush (delete) rules
+sudo iptables -X; # delete all extra chains
+#
+# IPv6
+# Set default policies to allow all traffic.
+sudo ip6tables --policy INPUT   ACCEPT;
+sudo ip6tables --policy OUTPUT  ACCEPT;
+sudo ip6tables --policy FORWARD ACCEPT;
+#
+# Initialize the iptables.
+sudo ip6tables -Z; # zero counters
+sudo ip6tables -F; # flush (delete) rules
+sudo ip6tables -X; # delete all extra chains

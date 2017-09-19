@@ -1,0 +1,15 @@
+#!/bin/bash
+GREEN="\e[32m"
+RED="\e[31m"
+NULL="\e[m"
+if sudo apt-get update &&
+sudo apt full-upgrade -y &&
+sudo apt-get clean -y &&
+sudo apt-get check; then
+echo ""
+echo -e "${GREEN}Update Complete!${NULL}"
+else
+echo ""
+echo -e "${RED}Update Failed!${NULL}"
+fi
+echo""
